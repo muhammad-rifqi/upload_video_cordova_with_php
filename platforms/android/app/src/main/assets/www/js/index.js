@@ -51,17 +51,17 @@ function getcamera() {
         }
 
         var fail = function (error) {
-            alert("An error has occurred: Code = " + error.code);
+            alert("An error has occurred: Code = " + JSON.stringify(error));
             console.log("upload error source " + error.source);
             console.log("upload error target " + error.target);
         }
-
-
+        console.log(mediaFiles);
+        var rd = Math.random()*100000000000;
         var fileURL = mediaFiles;
         var options = new FileUploadOptions();
         options.fileKey = "file";
-        options.fileName = "fileName.mp4";
-        options.mimeType = "video/mp4";
+        options.fileName = fileURL[0].name;
+        options.mimeType = fileURL[0].type;
         options.chunkedMode = false;
         // options.headers = {
         //     Connection: "close"
